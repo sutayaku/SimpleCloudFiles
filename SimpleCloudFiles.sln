@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCloudFiles", "SimpleCloudFiles\SimpleCloudFiles.csproj", "{DE8D236A-F016-40C8-8C96-0D3D7380D23E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE8D236A-F016-40C8-8C96-0D3D7380D23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8D236A-F016-40C8-8C96-0D3D7380D23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8D236A-F016-40C8-8C96-0D3D7380D23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8D236A-F016-40C8-8C96-0D3D7380D23E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18CA630C-4BCB-4051-85BE-A6C25AC9A542}
+	EndGlobalSection
+EndGlobal
