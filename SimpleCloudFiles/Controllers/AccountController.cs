@@ -53,7 +53,7 @@ namespace SimpleCloudFiles.Controllers
 		}
 
 		/// <summary>
-		/// 检测是否需要初始化
+		/// 获取账户信息
 		/// </summary>
 		/// <returns></returns>
 		[HttpGet("Info")]

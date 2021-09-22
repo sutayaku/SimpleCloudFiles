@@ -1,10 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SimpleCloudFiles.Models
 {
-    public class CfFile
+	/// <summary>
+	/// 文件数据
+	/// </summary>
+	public class CfFile
     {
         /// <summary>
         /// Id

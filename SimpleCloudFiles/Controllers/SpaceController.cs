@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SimpleCloudFiles.Dtos;
 using SimpleCloudFiles.Models;
 using SimpleCloudFiles.Utils;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,8 +21,13 @@ namespace SimpleCloudFiles.Controllers
 			_db = db;
 		}
 
+		/// <summary>
+		/// 获取目录下文件与目录列表
+		/// </summary>
+		/// <param name="dirId"></param>
+		/// <returns></returns>
 		[HttpGet("GetList")]
-		public async Task<ApiResult> GetList(string dirId)
+		public async Task<ApiResult> GetList(string dirId = "")
 		{
 			var dto = new CFDto();
 
@@ -85,6 +88,11 @@ namespace SimpleCloudFiles.Controllers
 			return result;
 		}
 
+		/// <summary>
+		/// 创建虚拟目录
+		/// </summary>
+		/// <param name="dto"></param>
+		/// <returns></returns>
 		[HttpPost("CreateDir")]
 		public async Task<ApiResult> CreateDir(CreateDirDto dto)
 		{
@@ -105,6 +113,12 @@ namespace SimpleCloudFiles.Controllers
 			return new ApiResult() { Code = 1 };
 		}
 
+		/// <summary>
+		/// 删除虚拟目录或文件
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="type"></param>
+		/// <returns></returns>
 		[HttpDelete("Delete/{type}/{id}")]
 		public async Task<ApiResult> Delete(string id, string type)
 		{

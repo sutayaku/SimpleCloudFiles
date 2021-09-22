@@ -3,13 +3,12 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using SimpleCloudFiles.Dtos;
+using SimpleCloudFiles.Models;
 using SimpleCloudFiles.Utils;
+using System;
 using System.Linq;
 using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text.Unicode;
 using System.Threading.Tasks;
 
 namespace SimpleCloudFiles.Controllers
@@ -28,6 +27,11 @@ namespace SimpleCloudFiles.Controllers
 		public async Task<ApiResult> Login(LoginInput input)
 		{
 			var result = new ApiResult();
+			if (!_db.Accounts.Any())
+			{
+				await InitDB();
+			}
+
 			var account = _db.Accounts.FirstOrDefault(a=>a.UserName == input.Account && a.Password == Md5Util.GetMD5(input.Password));
 			
 			if (account != null)
@@ -64,6 +68,30 @@ namespace SimpleCloudFiles.Controllers
 			{
 				Code = HttpContext.User.Claims.Where(a => a.Type == "accountId").Any() ? 1 : 0
 			};
+		}
+
+		private async Task InitDB()
+		{
+			var account = new Account
+			{
+				Id = Guid.NewGuid().ToString("N"),
+				Password = Md5Util.GetMD5("123456"),
+				UserName = "admin",
+				CreateTime = DateTime.Now
+			};
+
+			var dir = new Dir
+			{
+				Id = Guid.NewGuid().ToString("N"),
+				AccountId = account.Id,
+				CreateTime = DateTime.Now,
+				DirId = "",
+				Name = "首页"
+			};
+
+			await _db.Accounts.AddAsync(account);
+			await _db.Dirs.AddAsync(dir);
+			await _db.SaveChangesAsync();
 		}
 	}
 }

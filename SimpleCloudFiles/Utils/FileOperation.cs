@@ -4,12 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SimpleCloudFiles.Utils
 {
-    public class FileOperation
+	public class FileOperation
     {
         /// <summary>
         /// 保存文件

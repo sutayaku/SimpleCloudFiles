@@ -9,8 +9,8 @@ using SimpleCloudFiles;
 namespace SimpleCloudFiles.Migrations
 {
     [DbContext(typeof(CfDbContext))]
-    [Migration("20210914153450_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210922163157_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,15 +35,6 @@ namespace SimpleCloudFiles.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Accounts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "4548c99fa90b41e19283b046fff14ec9",
-                            CreateTime = new DateTime(2021, 9, 14, 23, 34, 49, 892, DateTimeKind.Local).AddTicks(7935),
-                            Password = "E10ADC3949BA59ABBE56E057F20F883E",
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("SimpleCloudFiles.Models.CfFile", b =>
@@ -100,16 +91,6 @@ namespace SimpleCloudFiles.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Dirs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "4329f1a476204af68493bba52d022728",
-                            AccountId = "4548c99fa90b41e19283b046fff14ec9",
-                            CreateTime = new DateTime(2021, 9, 14, 23, 34, 49, 895, DateTimeKind.Local).AddTicks(2221),
-                            DirId = "",
-                            Name = ""
-                        });
                 });
 #pragma warning restore 612, 618
         }

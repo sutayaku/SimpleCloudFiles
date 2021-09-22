@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SimpleCloudFiles.Models
 {
+    /// <summary>
+    /// 虚拟目录
+    /// </summary>
 	public class Dir
 	{
         /// <summary>

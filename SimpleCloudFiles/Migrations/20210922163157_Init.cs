@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SimpleCloudFiles.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,16 +54,6 @@ namespace SimpleCloudFiles.Migrations
                 {
                     table.PrimaryKey("PK_Dirs", x => x.Id);
                 });
-
-            migrationBuilder.InsertData(
-                table: "Accounts",
-                columns: new[] { "Id", "CreateTime", "Password", "UserName" },
-                values: new object[] { "4548c99fa90b41e19283b046fff14ec9", new DateTime(2021, 9, 14, 23, 34, 49, 892, DateTimeKind.Local).AddTicks(7935), "E10ADC3949BA59ABBE56E057F20F883E", "admin" });
-
-            migrationBuilder.InsertData(
-                table: "Dirs",
-                columns: new[] { "Id", "AccountId", "CreateTime", "DirId", "Name" },
-                values: new object[] { "4329f1a476204af68493bba52d022728", "4548c99fa90b41e19283b046fff14ec9", new DateTime(2021, 9, 14, 23, 34, 49, 895, DateTimeKind.Local).AddTicks(2221), "", "" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

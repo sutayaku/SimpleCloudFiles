@@ -55,7 +55,10 @@ namespace SimpleCloudFiles.Controllers
                 };
 
                 var index = input.Name.LastIndexOf(".");
-                input.Ext = input.Name.Substring(index + 1);
+                if (index != -1)
+				{
+                    input.Ext = input.Name.Substring(index + 1);
+                }
 
                 var sf = new SourceFile
                 {
@@ -178,6 +181,7 @@ namespace SimpleCloudFiles.Controllers
                     #endregion
 
                     //上传结束后给客户端
+                    result.Code = 1;
                     result.Data = new
                     {
                         file.Id,
