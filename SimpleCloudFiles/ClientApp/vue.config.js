@@ -1,5 +1,6 @@
 module.exports = {
     outputDir: '../wwwroot/client',
+    filenameHashing: false,
     devServer: {
         proxy: {
             '/api': {

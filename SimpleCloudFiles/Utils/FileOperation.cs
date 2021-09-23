@@ -125,7 +125,7 @@ namespace SimpleCloudFiles.Utils
         /// <param name="md5">客户端传入的源文件md5</param>
         /// <param name="ext">文件扩展名</param>
         /// <param name="size">客户端传入的源文件大小</param>
-        public static void SaveToRoot(string md5, string ext, long size)
+        public static string SaveToRoot(string md5, string ext, long size)
         {
             var sourceFilePath = GetSourceFilePath(md5, ext, size);
 
@@ -161,6 +161,8 @@ namespace SimpleCloudFiles.Utils
             {
                 File.Delete(sourceFilePath);
             }
+
+            return filePath;
         }
 
         /// <summary>

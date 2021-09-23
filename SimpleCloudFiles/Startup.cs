@@ -117,6 +117,12 @@ namespace SimpleCloudFiles
 			{
 				app.UseExceptionHandler("/Home/Error");
 			}
+
+			var fileServerOptions = new FileServerOptions();
+			fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
+			fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("index.html");
+			app.UseFileServer(fileServerOptions);
+
 			app.UseStaticFiles();
 
 			app.UseCors("AllowSameDomain");

@@ -232,7 +232,7 @@ export default {
                 });
             });
         },
-        download(row){ 
+        onDownload(row){ 
             var url = api.download + '/' + row.id
             window.open(url);
         },

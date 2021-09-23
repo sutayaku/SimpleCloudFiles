@@ -126,10 +126,10 @@ namespace SimpleCloudFiles.Controllers
                 if (FileOperation.ExistsSourceFile(sf.Md5, sf.Ext, sf.Size))
                 {
                     #region 转存到正式目录
-
+                    var savePath = "";
                     try
                     {
-                        FileOperation.SaveToRoot(sf.Md5, sf.Ext, sf.Size);
+                        savePath = FileOperation.SaveToRoot(sf.Md5, sf.Ext, sf.Size);
                     }
                     catch (CfException e)
                     {
@@ -155,8 +155,7 @@ namespace SimpleCloudFiles.Controllers
 
                     #region 记录源文件信息到数据库
 
-                    var filePath = FileOperation.GetSourceFilePath(sf.Md5, sf.Ext, sf.Size);
-                    var md5 = Md5Util.Md5File(filePath);
+                    var md5 = Md5Util.Md5File(savePath);
                     var file = new CfFile()
                     {
                         Id = Guid.NewGuid().ToString("N"),
